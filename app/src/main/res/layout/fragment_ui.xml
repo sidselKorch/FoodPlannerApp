@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#767272"
+    android:padding="5dp"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/recipe_list"
+        android:layout_marginTop="100sp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:background="#39f208"
+        android:text="List recipes"
+        android:layout_height="40sp"/>
+
+    <Button
+        android:id="@+id/saved_list"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:background="#39f208"
+        android:text="Saved recipe"
+        android:layout_height="40sp"/>
+
+    <Button
+        android:id="@+id/calender_list"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:background="#39f208"
+        android:text="calender list"
+        android:layout_height="40sp"
+        android:layout_marginTop="50dp"/>
+
+
+</LinearLayout>
