@@ -15,12 +15,31 @@
         android:layout_height="match_parent"
         android:id="@+id/text_in_viewpager"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/save_textview"
+        android:layout_below="@+id/recipe_view_pager"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="Type in recipename"
+        android:textSize="15sp"
+        />
+
+    <EditText
+        android:id="@+id/save_recipe_field"
+        android:layout_width="match_parent"
+        android:textSize="15sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/save_textview"
+        android:background="#ffffff"
+        android:layout_marginBottom="30dp"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/save_button"
         android:layout_marginLeft="140dp"
-        android:layout_below="@+id/recipe_view_pager"
+        android:layout_below="@+id/save_recipe_field"
         android:text="Save Recipe"/>
 
     <androidx.viewpager2.widget.ViewPager2

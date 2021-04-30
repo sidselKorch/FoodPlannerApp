@@ -19,7 +19,7 @@ public class RecipeFragment extends Fragment {
     private RecipeDB recipeDB;
 
     //Emil: Jeg har prøvet at tilføje den her.
-    private TextView textView;
+    private TextView textView, saveRecipeName;
     private static final String ARG_RECIPE_ID = "recipe_id";
 
     public static RecipeFragment newInstance(UUID recipeId) {
@@ -46,11 +46,17 @@ public class RecipeFragment extends Fragment {
         textView = v.findViewById(R.id.text_in_viewpager);
         textView.setText(recipeDB.toString());
 
+        saveRecipeName = v.findViewById(R.id.save_recipe_field);
+
         mSaveButton = (Button) v.findViewById(R.id.save_button);
         //mSaveButton.setText("Save recipe");
         mSaveButton.setEnabled(false);
 
         return v;
+    }
+
+    public  String getSavedRecipe(){
+        return saveRecipeName.toString().trim();
     }
 
 }

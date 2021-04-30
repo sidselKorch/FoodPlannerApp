@@ -20,7 +20,7 @@
             android:screenOrientation="sensor">
         </activity>
         <activity
-            android:name=".CalendarActivityList"
+            android:name=".CalenderActivityList"
             android:screenOrientation="sensor">
         </activity>
         <activity

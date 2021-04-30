@@ -39,7 +39,7 @@ public class RecipePagerActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.recipe_view_pager);
 
-        mRecipies = RecipeDB.get(this).getAll();
+        mRecipies = recipesDB.getAll();
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
 

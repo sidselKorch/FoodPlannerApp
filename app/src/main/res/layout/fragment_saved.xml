@@ -1,18 +1,39 @@
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#767272"
-    android:orientation="vertical"
-    tools:context=".SavedRecipeActivity">
+    tools:context=".RecipePagerActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_saved_recipe"
-        android:layout_gravity="top"
-        android:background="@color/white"
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:id="@+id/saved_recipe_view_pager"/>
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:id="@+id/saved_text_in_viewpager"/>
 
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_to_calender"
+        android:gravity="left"
+        android:layout_below="@+id/saved_recipe_view_pager"
+        android:text="add to calender"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/add_to_calender"
+        android:id="@+id/view_calender_button"
+        android:layout_below="@+id/saved_recipe_view_pager"
+        android:text="view calender"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

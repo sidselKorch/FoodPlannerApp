@@ -61,9 +61,9 @@ public class RecipeItem {
      */
     @Override
     public String toString() {
-        return getRecipeName() +"\n"+"\n"+
-                getRecipeGuide() +
-                getPictureFilename() + "\n";
+        return recipeName +"\n"+"\n"+
+                recipeGuide +
+                pictureFilename + "\n";
     }
 
     public static String getRecipeName(){
