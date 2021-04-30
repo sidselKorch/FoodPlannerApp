@@ -9,10 +9,10 @@ import java.util.UUID;
 
 public class RecipeItem {
     private static UUID mId;
-    private String recipeName = "";
-    private String recipeGuide = "";
+    private static String recipeName = "";
+    private static String recipeGuide = "";
     private List<RecipeIngredients> recipeIngredients;
-    private String pictureFilename = "";
+    private static String pictureFilename = "";
     private RecipeIngredients mRecipeIngredients;
     Context mContext;
 
@@ -47,8 +47,8 @@ public class RecipeItem {
         return mId;
     }
 
-    public static String getPictureFilename(String recipe) {
-        return "pictureFilename";
+    public static String getPictureFilename() {
+        return pictureFilename;
     }
 
     public String getPhotoFilename() {//tror vi skal bruge recipeName til at gemme billedet under?
@@ -61,17 +61,16 @@ public class RecipeItem {
      */
     @Override
     public String toString() {
-        return recipeName +"\n"+"\n"+
-                "Ingredients:\n" + printIngredient() + "\n" +
-                "Guide: \n" +
-                recipeGuide + "\n";
+        return getRecipeName() +"\n"+"\n"+
+                getRecipeGuide() +
+                getPictureFilename() + "\n";
     }
 
-    public String getRecipeName(){
+    public static String getRecipeName(){
         return recipeName;
     }
 
-    public String getRecipeGuide(){
+    public static String getRecipeGuide(){
         return recipeGuide;
     }
 

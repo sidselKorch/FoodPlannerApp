@@ -15,15 +15,12 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragmentList;
     Fragment fragmentAdd;
 
-    // Model: Database of items
-    private static RecipeDB recipesDB;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.foodplanner);
-        recipesDB = RecipeDB.get(this);
         fm = getSupportFragmentManager();
         setUpFragments();
     }

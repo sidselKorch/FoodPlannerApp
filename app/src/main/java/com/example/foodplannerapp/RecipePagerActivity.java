@@ -16,6 +16,7 @@ import java.util.UUID;
 
 public class RecipePagerActivity extends AppCompatActivity {
     private static final String EXTRA_RECIPE_ID = "com.example.foodplannerapp.crime_id";
+    private static RecipeDB recipesDB;
 
 
     private ViewPager mViewPager;
@@ -31,6 +32,7 @@ public class RecipePagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_recipe);
+        recipesDB = RecipeDB.get(this);
 
         UUID recipeId = (UUID) getIntent()
                 .getSerializableExtra(EXTRA_RECIPE_ID);

@@ -16,7 +16,7 @@ public class RecipeItemCurserWrapper extends CursorWrapper {
     public RecipeItem getRecipeItem() {
         String recipeName = getString(getColumnIndex(ItemTable.Cols.RecipeName));
         String recipeGuide = getString(getColumnIndex(ItemTable.Cols.RecipeGuide));
-        String recipePicture = getString(getColumnIndex(ItemTable.Cols.RecipePicture));
+        //String recipePicture = getString(getColumnIndex(ItemTable.Cols.RecipePicture));
         return new RecipeItem();
     }
 }

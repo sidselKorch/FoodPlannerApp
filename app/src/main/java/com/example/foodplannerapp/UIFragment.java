@@ -15,12 +15,11 @@ public class UIFragment extends Fragment {
     private Button listRecipes;
     private Button savedRecipes;
     private Button calenderRecipes;
-    private static RecipeDB recipesDB;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recipesDB = recipesDB.get(getActivity());
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

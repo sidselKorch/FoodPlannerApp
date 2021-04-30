@@ -25,10 +25,14 @@ public class RecipeDB extends Observable{
         private static RecipeDB sRecipeDB;
         private static Context sContext;
         private static SQLiteDatabase mDatabase;
+        private String recipeName = "";
+        private String recipeGuide = "";
+        private String recipePicture = "";
 
 
         private RecipeDB(Context context) {
-            if (getAll().size() == 0) fillItemsDB("foodPlanner.json");
+            //if (getAll().size() == 0)
+                fillItemsDB("foodPlanner.json");
         }
 
         public static RecipeDB get(Context context)  {
@@ -88,9 +92,10 @@ public class RecipeDB extends Observable{
                 String jsonString = reader.readLine();
                 JSONArray recipeA = new JSONArray(jsonString);
                 for (int i = 0; i < recipeA.length(); i++) {
-                    addRecipe(recipeA.getJSONObject(i).getString("gname"),
-                            recipeA.getJSONObject(i).getString("gguide"),
-                            recipeA.getJSONObject(i).getString("gpicture"));
+                    recipeName = recipeA.getJSONObject(i).getString("gname");
+                    recipeGuide = recipeA.getJSONObject(i).getString("gguide");
+                    recipePicture = recipeA.getJSONObject(i).getString("gpicture");
+                    addRecipe(recipeName, recipeGuide, recipePicture);
 
                 }
             } catch (JSONException je) {
@@ -138,17 +143,11 @@ public class RecipeDB extends Observable{
     }
 
     public String toString() {
-        String recipeName = "";
-        String recipeGuide = "";
-        String pictureFilename = "";
-            for(RecipeItem recipeItem : getAll()){
-                recipeName = recipeItem.getRecipeName();
-                recipeGuide = recipeItem.getRecipeGuide();
-                pictureFilename = recipeItem.getPictureFilename(recipeItem.getRecipeName());
-            }
-        return recipeName +"\n"+"\n"+
-                recipeGuide + "\n" +
-                pictureFilename + "\n";
+            return recipeName +"\n"+"\n"+
+                recipeGuide +
+                recipePicture + "\n";
+
+
     }
 
 }
