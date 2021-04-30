@@ -31,7 +31,8 @@ public class RecipeDB extends Observable{
 
 
         private RecipeDB(Context context) {
-            //if (getAll().size() == 0)
+            //if (getAll().size() == 0) - jeg har fjernet det her med 0, da den derfor ikke fyldte op med Json
+            //men det skulle meget gerne blive i databasen efterfølgende.
                 fillItemsDB("foodPlanner.json");
         }
 
