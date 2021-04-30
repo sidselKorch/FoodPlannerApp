@@ -47,7 +47,7 @@ public class RecipeItem {
         return mId;
     }
 
-    public static String getRecipePicture(String recipeName) {
+    public static String getPictureFilename(String recipe) {
         return "pictureFilename";
     }
 
@@ -61,7 +61,6 @@ public class RecipeItem {
      */
     @Override
     public String toString() {
-
         return recipeName +"\n"+"\n"+
                 "Ingredients:\n" + printIngredient() + "\n" +
                 "Guide: \n" +

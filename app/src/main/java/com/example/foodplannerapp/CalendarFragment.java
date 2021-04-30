@@ -87,7 +87,7 @@ public class CalendarFragment extends Fragment implements Observer {
             mNoView.setText(" " + position + " ");
             mRecipeNameView.setText(recipe.getRecipeName());
             mRecipeGuideView.setText(recipe.getRecipeGuide());
-            mPictureView.setText(recipe.getRecipePicture(recipe.getRecipeName()));
+            mPictureView.setText(recipe.getPictureFilename(recipe.getRecipeName()));
         }
 
         @Override

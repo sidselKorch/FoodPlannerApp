@@ -16,6 +16,7 @@ import java.util.UUID;
 public class RecipeFragment extends Fragment {
     private RecipeItem recipeItem;
     private Button mSaveButton;
+    private RecipeDB recipeDB;
 
     //Emil: Jeg har prøvet at tilføje den her.
     private TextView textView;
@@ -33,6 +34,7 @@ public class RecipeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        recipeDB = RecipeDB.get(getActivity());
         recipeItem = new RecipeItem();
     }
 
@@ -42,7 +44,7 @@ public class RecipeFragment extends Fragment {
 
         //Emil: Jeg har prøvet at tilføje den her.
         textView = v.findViewById(R.id.text_in_viewpager);
-        textView.setText(recipeItem.toString());
+        textView.setText(recipeDB.toString());
 
         mSaveButton = (Button) v.findViewById(R.id.save_button);
         //mSaveButton.setText("Save recipe");

@@ -26,6 +26,7 @@ public class RecipeDB extends Observable{
         private static Context sContext;
         private static SQLiteDatabase mDatabase;
 
+
         private RecipeDB(Context context) {
             if (getAll().size() == 0) fillItemsDB("foodPlanner.json");
         }
@@ -86,11 +87,11 @@ public class RecipeDB extends Observable{
                 BufferedReader reader = new BufferedReader(new InputStreamReader(sContext.getAssets().open(filename)));
                 String jsonString = reader.readLine();
                 JSONArray recipeA = new JSONArray(jsonString);
-
                 for (int i = 0; i < recipeA.length(); i++) {
                     addRecipe(recipeA.getJSONObject(i).getString("gname"),
                             recipeA.getJSONObject(i).getString("gguide"),
                             recipeA.getJSONObject(i).getString("gpicture"));
+
                 }
             } catch (JSONException je) {
                 Log.e(TAG, "Failed to parse JSON", je);
@@ -99,6 +100,7 @@ public class RecipeDB extends Observable{
             }
             this.setChanged();
             notifyObservers();
+
         }
 
         public ArrayList<RecipeItem> getAll() {
@@ -133,6 +135,20 @@ public class RecipeDB extends Observable{
 
     public RecipeItem getRecipeItem(int recipe) {
             return getAll().get(recipe);
+    }
+
+    public String toString() {
+        String recipeName = "";
+        String recipeGuide = "";
+        String pictureFilename = "";
+            for(RecipeItem recipeItem : getAll()){
+                recipeName = recipeItem.getRecipeName();
+                recipeGuide = recipeItem.getRecipeGuide();
+                pictureFilename = recipeItem.getPictureFilename(recipeItem.getRecipeName());
+            }
+        return recipeName +"\n"+"\n"+
+                recipeGuide + "\n" +
+                pictureFilename + "\n";
     }
 
 }
