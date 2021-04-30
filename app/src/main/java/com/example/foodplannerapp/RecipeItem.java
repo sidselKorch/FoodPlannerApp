@@ -61,13 +61,7 @@ public class RecipeItem {
      */
     @Override
     public String toString() {
-        /*
-        return "RecipeItem{" +
-                "Name='" + recipeName + '\'' +
-                ", Ingredients=" + recipeIngredients +
-                ", Guide='" + recipeGuide + '\'' +
-                '}';
-                */
+
         return recipeName +"\n"+"\n"+
                 "Ingredients:\n" + printIngredient() + "\n" +
                 "Guide: \n" +

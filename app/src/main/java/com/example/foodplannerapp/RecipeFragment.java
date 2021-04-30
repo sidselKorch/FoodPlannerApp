@@ -41,7 +41,7 @@ public class RecipeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_recipe, container, false);
 
         //Emil: Jeg har prøvet at tilføje den her.
-        textView = v.findViewById(R.id.text_in_viewPager);
+        textView = v.findViewById(R.id.text_in_viewpager);
         textView.setText(recipeItem.toString());
 
         mSaveButton = (Button) v.findViewById(R.id.save_button);
