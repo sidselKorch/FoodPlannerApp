@@ -1,8 +1,6 @@
 package com.example.foodplannerapp;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +42,7 @@ public class RecipeFragment extends Fragment {
 
         //Emil: Jeg har prøvet at tilføje den her.
         textView = v.findViewById(R.id.text_in_viewpager);
-        textView.setText(recipeDB.toString());
+        textView.setText(recipeItem.toString());
 
         saveRecipeName = v.findViewById(R.id.save_recipe_field);
 

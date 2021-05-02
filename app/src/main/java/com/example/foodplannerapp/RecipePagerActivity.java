@@ -7,10 +7,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,6 +33,7 @@ public class RecipePagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_recipe);
         recipesDB = RecipeDB.get(this);
+        mRecipies = new ArrayList<>();
 
         UUID recipeId = (UUID) getIntent()
                 .getSerializableExtra(EXTRA_RECIPE_ID);
@@ -55,7 +56,7 @@ public class RecipePagerActivity extends AppCompatActivity {
             }
         });
 
-        for (int i = 0; i < mRecipies.size(); i++) {
+        for (int i =0; i < mRecipies.size(); i++) {
             if (mRecipies.get(i).getId().equals(recipeId)) {
                 mViewPager.setCurrentItem(i);
                 break;

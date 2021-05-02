@@ -80,5 +80,13 @@ public class RecipeItem {
         File filesDir = mContext.getFilesDir();
         return new File(filesDir, getPhotoFilename());
     }
+
+    public static void setRecipeName(String recipeName) {
+        RecipeItem.recipeName = recipeName;
+    }
+
+    public static void setRecipeGuide(String recipeGuide) {
+        RecipeItem.recipeGuide = recipeGuide;
+    }
 }
 

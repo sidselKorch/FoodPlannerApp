@@ -1,11 +1,14 @@
 package com.example.foodplannerapp;
 
+import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.res.Configuration;
-import android.os.Bundle;
+import com.example.foodplannerapp.Database.RecipeItemBaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragmentUI;
     Fragment fragmentList;
     Fragment fragmentAdd;
-
+    private static SQLiteDatabase mDatabase;
 
 
     @Override
@@ -23,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.foodplanner);
         fm = getSupportFragmentManager();
         setUpFragments();
+        mDatabase = new RecipeItemBaseHelper(this).getWritableDatabase();
+
     }
 
 

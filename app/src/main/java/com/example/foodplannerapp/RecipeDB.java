@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.foodplannerapp.Database.RecipeDbSchema;
+import com.example.foodplannerapp.Database.RecipeItemBaseHelper;
+import com.example.foodplannerapp.Database.RecipeItemCurserWrapper;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -14,10 +18,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Observable;
-
-import com.example.foodplannerapp.Database.RecipeDbSchema;
-import com.example.foodplannerapp.Database.RecipeItemBaseHelper;
-import com.example.foodplannerapp.Database.RecipeItemCurserWrapper;
 
 public class RecipeDB extends Observable{
 
@@ -47,7 +47,7 @@ public class RecipeDB extends Observable{
 
         //public Map<String, String> getItemsDB() {return ItemsDB; }
 
-        public void addRecipe(String recipeName, String recipeGuide, String picture) {
+        public void addRecipe(String recipeName, String recipeGuide) {
             RecipeItem newRecipe = new RecipeItem();
             ContentValues values = getContentValues(newRecipe);
             mDatabase.insert(RecipeDbSchema.ItemTable.NAME, null, values);
@@ -93,11 +93,17 @@ public class RecipeDB extends Observable{
                 String jsonString = reader.readLine();
                 JSONArray recipeA = new JSONArray(jsonString);
                 for (int i = 0; i < recipeA.length(); i++) {
+                    RecipeItem.setRecipeName(recipeA.getJSONObject(i).getString("gname"));
+                    RecipeItem.setRecipeGuide(recipeA.getJSONObject(i).getString("gguide"));
+                    /*
                     recipeName = recipeA.getJSONObject(i).getString("gname");
                     recipeGuide = recipeA.getJSONObject(i).getString("gguide");
-                    recipePicture = recipeA.getJSONObject(i).getString("gpicture");
-                    addRecipe(recipeName, recipeGuide, recipePicture);
+                    //recipePicture = recipeA.getJSONObject(i).getString("gpicture");
+                    addRecipe(recipeName, recipeGuide);
+                    addRecipe(recipeA.getJSONObject(i).getString("gname"), recipeA.getJSONObject(i).getString("gguide"));
 
+
+                     */
                 }
             } catch (JSONException je) {
                 Log.e(TAG, "Failed to parse JSON", je);
