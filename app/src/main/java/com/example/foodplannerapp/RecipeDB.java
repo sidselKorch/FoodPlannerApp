@@ -25,6 +25,7 @@ public class RecipeDB extends Observable{
         private static RecipeDB sRecipeDB;
         private static Context sContext;
         private static SQLiteDatabase mDatabase;
+        private ArrayList<RecipeItem> list = new ArrayList<>();
         /*private String recipeName = "";
         private String recipeGuide = "";
         private String recipePicture = "";
@@ -48,6 +49,7 @@ public class RecipeDB extends Observable{
 
         //public Map<String, String> getItemsDB() {return ItemsDB; }
 
+        /*
         public void addRecipe(String recipeName, String recipeGuide) {
             RecipeItem newRecipe = new RecipeItem();
             ContentValues values = getContentValues(newRecipe);
@@ -56,7 +58,16 @@ public class RecipeDB extends Observable{
             notifyObservers();
         }
 
-        private static ContentValues getContentValues(RecipeItem recipe) {
+         */
+
+        public void addRecipe(RecipeItem recipeItem) {
+            ContentValues values = getContentValues(recipeItem);
+            mDatabase.insert(RecipeDbSchema.ItemTable.NAME, null, values);
+            this.setChanged();
+            notifyObservers();
+        }
+
+        private ContentValues getContentValues(RecipeItem recipe) {
             ContentValues values = new ContentValues();
             values.put(RecipeDbSchema.ItemTable.Cols.RecipeName, recipe.getRecipeName());
             values.put(RecipeDbSchema.ItemTable.Cols.RecipeGuide, recipe.getRecipeGuide());
@@ -96,17 +107,26 @@ public class RecipeDB extends Observable{
                 String jsonString = reader.readLine();
                 JSONArray recipeA = new JSONArray(jsonString);
                 for (int i = 0; i < recipeA.length(); i++) {
-                    RecipeItem.setRecipeName(recipeA.getJSONObject(i).getString("gname"));
-                    RecipeItem.setRecipeGuide(recipeA.getJSONObject(i).getString("gguide"));
+                    RecipeItem ri = new RecipeItem();
+
+                    String rName = recipeA.getJSONObject(i).getString("gname");
+                    String rGuide = recipeA.getJSONObject(i).getString("gguide");
+                    //ri.setRecipeName(recipeA.getJSONObject(i).getString("gname"));
+                    //ri.setRecipeGuide(recipeA.getJSONObject(i).getString("gguide"));
+
+                    ri.setRecipeName(rName);
+                    ri.setRecipeGuide(rGuide);
+
+                    //addRecipe(recipeA.getJSONObject(i).getString("gname"), recipeA.getJSONObject(i).getString("gguide"));
+                    list.add(ri);
+
+                    addRecipe(ri);
                     /*
                     recipeName = recipeA.getJSONObject(i).getString("gname");
                     recipeGuide = recipeA.getJSONObject(i).getString("gguide");
                     //recipePicture = recipeA.getJSONObject(i).getString("gpicture");
                     addRecipe(recipeName, recipeGuide);
                     */
-                    addRecipe(recipeA.getJSONObject(i).getString("gname"), recipeA.getJSONObject(i).getString("gguide"));
-
-
 
                 }
             } catch (JSONException je) {
@@ -118,7 +138,10 @@ public class RecipeDB extends Observable{
             notifyObservers();
 
         }
-
+        public ArrayList<RecipeItem> getAll() {
+            return list;
+        }
+        /*
         public ArrayList<RecipeItem> getAll() {
             ArrayList<RecipeItem> recipes = new ArrayList<>();
             RecipeItemCurserWrapper cursor = queryItems(null, null);
@@ -131,6 +154,8 @@ public class RecipeDB extends Observable{
             return recipes;
         }
 
+         */
+
         static private RecipeItemCurserWrapper queryItems(String whereClause, String[] whereArgs) {
             Cursor cursor = mDatabase.query(
                     RecipeDbSchema.ItemTable.NAME,
@@ -142,7 +167,6 @@ public class RecipeDB extends Observable{
             );
             return new RecipeItemCurserWrapper(cursor);
         }
-
 
         public void close() {
             mDatabase.close();

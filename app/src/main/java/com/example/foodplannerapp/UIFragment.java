@@ -33,7 +33,7 @@ public class UIFragment extends Fragment {
             listRecipes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), RecipePagerActivity.class);
+                    Intent intent = new Intent(getActivity(), RecipePagerActivity.class); //RecipePagerActivity -- MyActivity
                     startActivity(intent);
                 }
             });

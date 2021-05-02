@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
     private void setUpFragments() {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             fragmentUI= fm.findFragmentById(R.id.container_ui_landscape);
-            fragmentList= fm.findFragmentById(R.id.recipe_container_list);
+            //fragmentList= fm.findFragmentById(R.id.recipe_container_list);
             if ((fragmentUI == null) && (fragmentList == null) && (fragmentAdd == null)) {
                 fragmentUI= new UIFragment();
                 fragmentList= new RecipeFragment();
                 fm.beginTransaction()
                         .add(R.id.container_ui_landscape, fragmentUI)
-                        .add(R.id.recipe_container_list, fragmentList)
+                        //.add(R.id.recipe_container_list, fragmentList)
                         .commit();
             }
         } else {

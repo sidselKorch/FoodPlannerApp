@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class RecipeFragment extends Fragment {

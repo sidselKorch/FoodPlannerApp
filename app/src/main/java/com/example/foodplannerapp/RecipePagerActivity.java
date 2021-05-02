@@ -17,7 +17,7 @@ import java.util.UUID;
 public class RecipePagerActivity extends AppCompatActivity {
     private static final String EXTRA_RECIPE_ID = "com.example.foodplannerapp.crime_id";
     private static RecipeDB recipesDB;
-
+    public static final int BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1;
 
     private ViewPager mViewPager;
     private List<RecipeItem> mRecipies;
@@ -35,14 +35,13 @@ public class RecipePagerActivity extends AppCompatActivity {
         recipesDB = RecipeDB.get(this);
         mRecipies = new ArrayList<>();
 
-        UUID recipeId = (UUID) getIntent()
-                .getSerializableExtra(EXTRA_RECIPE_ID);
+        UUID recipeId = (UUID) getIntent().getSerializableExtra(EXTRA_RECIPE_ID);
 
         mViewPager = (ViewPager) findViewById(R.id.recipe_view_pager);
 
         mRecipies = recipesDB.getAll();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
+        mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
             @Override
             public Fragment getItem(int position) {
@@ -55,13 +54,28 @@ public class RecipePagerActivity extends AppCompatActivity {
                 return mRecipies.size();
             }
         });
+        mViewPager.setCurrentItem(1);
+        /*
+        for (int i =0; i < mRecipies.size(); i++) {
+            RecipeItem res = mRecipies.get(i);
+            UUID n = res.getId();
+            UUID q = recipeId;
+            boolean bool = n.equals(q);
+            if (bool) {
+                mViewPager.setCurrentItem(i);
+                break;
+            }
+        }
 
+         */
+        /*
         for (int i =0; i < mRecipies.size(); i++) {
             if (mRecipies.get(i).getId().equals(recipeId)) {
                 mViewPager.setCurrentItem(i);
                 break;
             }
-
         }
+
+         */
     }
 }

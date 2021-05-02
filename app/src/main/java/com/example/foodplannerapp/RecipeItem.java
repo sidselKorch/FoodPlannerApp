@@ -9,20 +9,18 @@ import java.util.UUID;
 
 public class RecipeItem {
     private static UUID mId;
-    private static String recipeName = "";
-    private static String recipeGuide = "";
-    private List<RecipeIngredients> recipeIngredients;
-    private static String pictureFilename = "";
-    private RecipeIngredients mRecipeIngredients;
+    private String recipeName;
+    private String recipeGuide;
+    private String pictureFilename;
     Context mContext;
 
 
     public RecipeItem() {
-        recipeIngredients = new ArrayList<>();
-        mRecipeIngredients = new RecipeIngredients();
+        recipeName = "";
+        recipeGuide = "";
         mId = UUID.randomUUID();
     }
-
+    /*
     public void addIngredient(RecipeIngredients ingredients) {
         if (!recipeIngredients.contains(ingredients)) recipeIngredients.add(ingredients);
     }
@@ -35,6 +33,8 @@ public class RecipeItem {
         if (recipeIngredients.contains(ingredients)) recipeIngredients.remove(ingredients);
     }
 
+
+
     public String printIngredient() {
         String str = "";
         for (RecipeIngredients recipe : recipeIngredients) {
@@ -43,17 +43,26 @@ public class RecipeItem {
         return str;
     }
 
+     */
+
     public static UUID getId() {
         return mId;
     }
 
+
+    /*
     public static String getPictureFilename() {
         return pictureFilename;
     }
 
+     */
+
+    /*
     public String getPhotoFilename() {//tror vi skal bruge recipeName til at gemme billedet under?
         return "IMG_" + mRecipeIngredients.getRecipeName().toString() + ".jpg";
     }
+
+     */
 
     /**
      *
@@ -66,27 +75,27 @@ public class RecipeItem {
                 pictureFilename + "\n";
     }
 
-    public static String getRecipeName(){
+    public String getRecipeName(){
         return recipeName;
     }
 
-    public static String getRecipeGuide(){
+    public String getRecipeGuide(){
         return recipeGuide;
     }
-
-
-
+    /*
     public File getPhotoFile(RecipeIngredients recipe) {
         File filesDir = mContext.getFilesDir();
         return new File(filesDir, getPhotoFilename());
     }
 
-    public static void setRecipeName(String recipeName) {
-        RecipeItem.recipeName = recipeName;
+     */
+
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
-    public static void setRecipeGuide(String recipeGuide) {
-        RecipeItem.recipeGuide = recipeGuide;
+    public void setRecipeGuide(String recipeGuide) {
+        this.recipeGuide = recipeGuide;
     }
 }
 
