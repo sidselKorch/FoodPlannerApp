@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -42,15 +43,21 @@ public class RecipeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_recipe, container, false);
 
         //Emil: Jeg har prøvet at tilføje den her.
-        textView = v.findViewById(R.id.text_in_viewpager);
-        textView.setText(recipeItem.toString());
+        if(recipeDB.getAll() != null) {
+            textView = v.findViewById(R.id.text_in_viewpager);
+            for (int i = 0; i < recipeDB.getAll().size(); i++) {
+                textView.setText(recipeDB.getAll().get(i).toString());
 
-        saveRecipeName = v.findViewById(R.id.save_recipe_field);
+                saveRecipeName = v.findViewById(R.id.save_recipe_field);
 
-        mSaveButton = (Button) v.findViewById(R.id.save_button);
-        //mSaveButton.setText("Save recipe");
-        mSaveButton.setEnabled(false);
+                mSaveButton = (Button) v.findViewById(R.id.save_button);
+                //mSaveButton.setText("Save recipe");
+                mSaveButton.setEnabled(false);
 
+                return v;
+            }
+        }else
+            Toast.makeText(getActivity(), "There is no recipes in the list", Toast.LENGTH_LONG).show();
         return v;
     }
 
