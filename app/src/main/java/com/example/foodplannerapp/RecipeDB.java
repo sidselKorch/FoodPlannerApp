@@ -25,9 +25,10 @@ public class RecipeDB extends Observable{
         private static RecipeDB sRecipeDB;
         private static Context sContext;
         private static SQLiteDatabase mDatabase;
-        private String recipeName = "";
+        /*private String recipeName = "";
         private String recipeGuide = "";
         private String recipePicture = "";
+         */
 
 
         private RecipeDB(Context context) {
@@ -63,7 +64,7 @@ public class RecipeDB extends Observable{
         }
 
         // SELECT item
-        public String getRecipeValue(String itemName) {
+        /*public String getRecipeValue(String itemName) {
             //slå op i database i stedet
 
             String can = "";
@@ -86,6 +87,8 @@ public class RecipeDB extends Observable{
             }
         }
 
+         */
+
         //INSERT items
         private void fillItemsDB(String filename) {
             try {
@@ -100,10 +103,11 @@ public class RecipeDB extends Observable{
                     recipeGuide = recipeA.getJSONObject(i).getString("gguide");
                     //recipePicture = recipeA.getJSONObject(i).getString("gpicture");
                     addRecipe(recipeName, recipeGuide);
+                    */
                     addRecipe(recipeA.getJSONObject(i).getString("gname"), recipeA.getJSONObject(i).getString("gguide"));
 
 
-                     */
+
                 }
             } catch (JSONException je) {
                 Log.e(TAG, "Failed to parse JSON", je);
@@ -139,6 +143,7 @@ public class RecipeDB extends Observable{
             return new RecipeItemCurserWrapper(cursor);
         }
 
+
         public void close() {
             mDatabase.close();
         }
@@ -149,12 +154,5 @@ public class RecipeDB extends Observable{
             return getAll().get(recipe);
     }
 
-    public String toString() {
-            return recipeName +"\n"+"\n"+
-                recipeGuide +
-                recipePicture + "\n";
-
-
-    }
 
 }
