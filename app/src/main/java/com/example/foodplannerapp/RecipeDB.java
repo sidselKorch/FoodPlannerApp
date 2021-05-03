@@ -28,9 +28,9 @@ public class RecipeDB extends Observable{
         private ArrayList<RecipeItem> list = new ArrayList<>();
 
         private RecipeDB(Context context) {
-            //if (getAll().size() == 0) - jeg har fjernet det her med 0, da den derfor ikke fyldte op med Json
-            //men det skulle meget gerne blive i databasen efterfølgende.
+            if (getAll().size() == 0) {
                 fillItemsDB("foodPlanner.json");
+            }
         }
 
         public static RecipeDB get(Context context)  {
@@ -134,11 +134,14 @@ public class RecipeDB extends Observable{
 
         }
 
+        /*
         public ArrayList<RecipeItem> getAll() {
             return list;
         }
 
-        /*
+         */
+
+
         public ArrayList<RecipeItem> getAll() {
             ArrayList<RecipeItem> recipes = new ArrayList<>();
             RecipeItemCurserWrapper cursor = queryItems(null, null);
@@ -150,7 +153,7 @@ public class RecipeDB extends Observable{
             cursor.close();
             return recipes;
         }
-        */
+
 
         static private RecipeItemCurserWrapper queryItems(String whereClause, String[] whereArgs) {
             Cursor cursor = mDatabase.query(

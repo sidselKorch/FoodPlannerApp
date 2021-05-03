@@ -12,7 +12,7 @@ public class RecipeViewPagerActivity extends AppCompatActivity {
 
     ViewPager2 viewPager2;
     static RecipeDB recipesDB;
-    //List<RecipeItem> tempList;
+    List<RecipeItem> tempList;
     List<RecipeItem> mRecipies;
 
 
@@ -21,21 +21,22 @@ public class RecipeViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipe_pager_activity);
         recipesDB = RecipeDB.get(this);
+
         viewPager2 = findViewById(R.id.viewPager2);
         mRecipies = new ArrayList<>();
-        //tempList = new ArrayList<>();
-        mRecipies = recipesDB.getAll();
+        tempList = new ArrayList<>();
+        tempList = recipesDB.getAll();
 
-        /*
         for (RecipeItem ri : tempList) {
-            String StrInTemp = ri.getRecipeName().charAt();
-            if (StrInTemp.equals("\n\n")) {
+            String name = ri.getRecipeName();
+            String guide = ri.getRecipeGuide();
+            if (!name.equals("") && !guide.equals("")) {
                 mRecipies.add(ri);
             }
         }
-         */
 
         viewPager2.setAdapter(new RecipeFragmentStateAdapter(this, mRecipies, viewPager2));
 
     }
+
 }

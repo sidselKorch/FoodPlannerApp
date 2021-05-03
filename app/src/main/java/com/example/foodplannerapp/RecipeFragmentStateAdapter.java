@@ -20,7 +20,7 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
     private ViewPager2 viewPager2;
 
 
-    private int[] colorArray = new int[]{android.R.color.black, android.R.color.holo_blue_dark, android.R.color.holo_green_dark, android.R.color.holo_red_dark};
+    //private int[] colorArray = new int[]{android.R.color.black, android.R.color.holo_blue_dark, android.R.color.holo_green_dark, android.R.color.holo_red_dark};
 
     RecipeFragmentStateAdapter(Context context, List<RecipeItem> data, ViewPager2 viewPager2) {
         this.mInflater = LayoutInflater.from(context);
@@ -39,7 +39,7 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
     public void onBindViewHolder(ViewHolder holder, int position) {
         RecipeItem recipeItem = mData.get(position);
         holder.myTextView.setText(recipeItem.toString());
-        holder.relativeLayout.setBackgroundResource(colorArray[position]);
+        //holder.relativeLayout.setBackgroundResource(colorArray[position]);
     }
 
     @Override
