@@ -26,11 +26,6 @@ public class RecipeDB extends Observable{
         private static Context sContext;
         private static SQLiteDatabase mDatabase;
         private ArrayList<RecipeItem> list = new ArrayList<>();
-        /*private String recipeName = "";
-        private String recipeGuide = "";
-        private String recipePicture = "";
-         */
-
 
         private RecipeDB(Context context) {
             //if (getAll().size() == 0) - jeg har fjernet det her med 0, da den derfor ikke fyldte op med Json
@@ -101,7 +96,7 @@ public class RecipeDB extends Observable{
          */
 
         //INSERT items
-        private void fillItemsDB(String filename) {
+        public void fillItemsDB(String filename) {
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(sContext.getAssets().open(filename)));
                 String jsonString = reader.readLine();
@@ -138,9 +133,13 @@ public class RecipeDB extends Observable{
             notifyObservers();
 
         }
+
+
         public ArrayList<RecipeItem> getAll() {
             return list;
         }
+
+
         /*
         public ArrayList<RecipeItem> getAll() {
             ArrayList<RecipeItem> recipes = new ArrayList<>();

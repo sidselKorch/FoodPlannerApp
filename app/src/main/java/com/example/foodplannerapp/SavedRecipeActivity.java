@@ -47,6 +47,7 @@ public class SavedRecipeActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
 
+
             @Override
             public Fragment getItem(int position) {
                 RecipeItem recipeItem = mRecipies.get(position);
@@ -68,3 +69,5 @@ public class SavedRecipeActivity extends AppCompatActivity {
         }
     }
 }
+
+

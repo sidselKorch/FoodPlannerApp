@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             //fragmentList= fm.findFragmentById(R.id.recipe_container_list);
             if ((fragmentUI == null) && (fragmentList == null) && (fragmentAdd == null)) {
                 fragmentUI= new UIFragment();
-                fragmentList= new RecipeFragment();
+                //fragmentList= new RecipeFragment();
                 fm.beginTransaction()
                         .add(R.id.container_ui_landscape, fragmentUI)
                         //.add(R.id.recipe_container_list, fragmentList)
