@@ -71,8 +71,8 @@ public class RecipeItem {
     @Override
     public String toString() {
         return recipeName +"\n"+"\n"+
-                recipeGuide +
-                pictureFilename + "\n";
+                recipeGuide;
+                //pictureFilename + "\n";
     }
 
     public String getRecipeName(){

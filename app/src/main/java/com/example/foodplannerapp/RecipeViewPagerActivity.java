@@ -22,14 +22,13 @@ public class RecipeViewPagerActivity extends AppCompatActivity {
         setContentView(R.layout.recipe_pager_activity);
         recipesDB = RecipeDB.get(this);
         viewPager2 = findViewById(R.id.viewPager2);
-        //tempList = new ArrayList<>();
         mRecipies = new ArrayList<>();
-
+        //tempList = new ArrayList<>();
         mRecipies = recipesDB.getAll();
 
         /*
         for (RecipeItem ri : tempList) {
-            String StrInTemp = ri.getRecipeName().substring(0,4);
+            String StrInTemp = ri.getRecipeName().charAt();
             if (StrInTemp.equals("\n\n")) {
                 mRecipies.add(ri);
             }

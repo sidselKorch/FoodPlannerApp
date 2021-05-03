@@ -16,7 +16,7 @@ import java.util.UUID;
 /**
  * This class is representing af list of saved recipes with a text and a picture.
  */
-
+/*
 public class SavedRecipeActivity extends AppCompatActivity {
 
     private static final String EXTRA_RECIPE_ID = "com.example.foodplannerapp.crime_id";
@@ -47,7 +47,6 @@ public class SavedRecipeActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
 
-
             @Override
             public Fragment getItem(int position) {
                 RecipeItem recipeItem = mRecipies.get(position);
@@ -70,4 +69,4 @@ public class SavedRecipeActivity extends AppCompatActivity {
     }
 }
 
-
+ */

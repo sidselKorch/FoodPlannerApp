@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import java.util.UUID;
-
+/*
 public class SavedFragment extends Fragment {
     private RecipeItem recipeItem;
     private Button mAddTooCalenderButton, mViewCalenderButton;
@@ -22,7 +22,6 @@ public class SavedFragment extends Fragment {
     private TextView textView;
     private static final String ARG_RECIPE_ID = "recipe_id";
 
-
     public static RecipeFragment newInstance(UUID recipeId) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_RECIPE_ID, recipeId);
@@ -31,8 +30,6 @@ public class SavedFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +43,7 @@ public class SavedFragment extends Fragment {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
 
             //Emil: Jeg har prøvet at tilføje den her.
-            //textView = v.findViewById(R.id.text_in_viewpager);
+            textView = v.findViewById(R.id.text_in_viewpager);
             textView.setText(savedRecipeDB.toString());
 
             mAddTooCalenderButton = (Button) v.findViewById(R.id.add_to_calender);
@@ -69,3 +66,4 @@ public class SavedFragment extends Fragment {
         return v;
     }
 }
+*/

@@ -134,11 +134,9 @@ public class RecipeDB extends Observable{
 
         }
 
-
         public ArrayList<RecipeItem> getAll() {
             return list;
         }
-
 
         /*
         public ArrayList<RecipeItem> getAll() {
@@ -152,8 +150,7 @@ public class RecipeDB extends Observable{
             cursor.close();
             return recipes;
         }
-
-         */
+        */
 
         static private RecipeItemCurserWrapper queryItems(String whereClause, String[] whereArgs) {
             Cursor cursor = mDatabase.query(
