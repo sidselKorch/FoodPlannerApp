@@ -51,13 +51,13 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView myTextView;
         RelativeLayout relativeLayout;
-        Button button;
+        Button saveButton;
 
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.viewPager_text);
             relativeLayout = itemView.findViewById(R.id.container);
-            //button = itemView.findViewById(R.id.btnToggle);
+            saveButton = itemView.findViewById(R.id.save_button);
 
             /*
             button.setOnClickListener(new View.OnClickListener() {

@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:background="@color/black"
         android:textColor="@android:color/white"
         android:textSize="32sp"/>
 
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/add_to_calender"
+        android:background="#39f208"
         android:gravity="left"
         android:layout_below="@+id/saved_viewPager_text"
         android:text="add to calender"/>
@@ -33,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:background="#39f208"
         android:layout_toRightOf="@id/add_to_calender"
         android:id="@+id/view_calender_button"
         android:layout_below="@+id/saved_viewPager_text"

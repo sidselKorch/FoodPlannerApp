@@ -2,6 +2,14 @@ package com.example.foodplannerapp;
 
 import android.content.Context;
 import android.media.Image;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,14 +22,17 @@ import java.util.Observable;
  * */
 
 public class SavedRecipeDB extends Observable {
+    private static final String TAG = "myLOG";
     private static final List<RecipeItem> savedRecipeDB = new ArrayList<>();
     private static SavedRecipeDB mSavedRecipeDB;
+    private static Context sContext;
 
-    private SavedRecipeDB (Context context) {
+    private SavedRecipeDB (Context context) {fillRecipeItems("foodPlanner.json");
     }
 
     public static SavedRecipeDB  get(Context context)  {
         if (mSavedRecipeDB == null) {
+            sContext = context;
             mSavedRecipeDB = new SavedRecipeDB (context);
         }
         return mSavedRecipeDB;
@@ -65,6 +76,43 @@ public class SavedRecipeDB extends Observable {
             result.add(new RecipeItem());
         }
         return result;
+    }
+
+    public void fillRecipeItems(String filename){
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(sContext.getAssets().open(filename)));
+            String jsonString = reader.readLine();
+            JSONArray recipeA = new JSONArray(jsonString);
+            for (int i = 0; i < recipeA.length(); i++) {
+                RecipeItem ri = new RecipeItem();
+
+                String rName = recipeA.getJSONObject(i).getString("gname");
+                String rGuide = recipeA.getJSONObject(i).getString("gguide");
+                //ri.setRecipeName(recipeA.getJSONObject(i).getString("gname"));
+                //ri.setRecipeGuide(recipeA.getJSONObject(i).getString("gguide"));
+
+                ri.setRecipeName(rName);
+                ri.setRecipeGuide(rGuide);
+
+                //addRecipe(recipeA.getJSONObject(i).getString("gname"), recipeA.getJSONObject(i).getString("gguide"));
+                savedRecipeDB.add(ri);
+
+                    /*
+                    recipeName = recipeA.getJSONObject(i).getString("gname");
+                    recipeGuide = recipeA.getJSONObject(i).getString("gguide");
+                    //recipePicture = recipeA.getJSONObject(i).getString("gpicture");
+                    addRecipe(recipeName, recipeGuide);
+                    */
+
+            }
+        } catch (JSONException je) {
+            Log.e(TAG, "Failed to parse JSON", je);
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to read file", e);
+        }
+        this.setChanged();
+        notifyObservers();
+
     }
 
 }

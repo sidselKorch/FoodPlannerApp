@@ -26,7 +26,7 @@ import android.content.Context;
         private LayoutInflater mInflater;
         private ViewPager2 viewPager2;
 
-        private int[]colorArray=new int[]{android.R.color.black,android.R.color.holo_blue_dark,android.R.color.holo_green_dark,android.R.color.holo_red_dark};
+        //private int[]colorArray=new int[]{android.R.color.black,android.R.color.holo_blue_dark,android.R.color.holo_green_dark,android.R.color.holo_red_dark};
 
         public SavedFragment(Context context,List<RecipeItem>data,ViewPager2 viewPager2){
             this.mInflater=LayoutInflater.from(context);
@@ -45,7 +45,7 @@ import android.content.Context;
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             RecipeItem recipeItem=savedRecipeDB.get(position);
             holder.myTextView.setText(recipeItem.toString());
-            holder.relativeLayout.setBackgroundResource(colorArray[position]);
+            //holder.relativeLayout.setBackgroundResource(colorArray[position]);
 
         }
 
@@ -62,7 +62,7 @@ import android.content.Context;
             ViewHolder(View itemView) {
                 super(itemView);
                 myTextView = itemView.findViewById(R.id.saved_viewPager_text);
-                relativeLayout = itemView.findViewById(R.id.saved_container_list);
+                relativeLayout = itemView.findViewById(R.id.viewPager_saved);
 
                 mAddTooCalenderButton = itemView.findViewById(R.id.add_to_calender);
                 //mSaveButton.setText("Saverecipe");

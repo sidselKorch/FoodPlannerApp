@@ -29,7 +29,7 @@ public class SavedRecipeActivity extends AppCompatActivity{
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_saved_list);
     mSavedRecipesDB = SavedRecipeDB.get(this);
-    viewPager2 = findViewById(R.id.viewPager2);
+    viewPager2 = findViewById(R.id.viewPager_saved);
     mRecipies = new ArrayList<>();
     tempList = new ArrayList<>();
     tempList = mSavedRecipesDB.getSavedRecipeList();
@@ -43,7 +43,7 @@ public class SavedRecipeActivity extends AppCompatActivity{
     }
 
 
-        mRecipies = mSavedRecipesDB.getSavedRecipeList();
+
 
         viewPager2.setAdapter(new SavedFragment(this, mRecipies, viewPager2));
 
