@@ -69,7 +69,12 @@ import android.content.Context;
                 mAddTooCalenderButton.setEnabled(false);
 
                 mViewCalenderButton = itemView.findViewById(R.id.view_calender_button);
-                mViewCalenderButton.setEnabled(false);
+                mViewCalenderButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       itemView.getContext().startActivity(new Intent(itemView.getContext(), CalenderActivityList.class));
+                    }
+                });
             }
         }
 }
