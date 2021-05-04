@@ -13,8 +13,9 @@ import android.content.Context;
         import android.widget.Button;
         import android.widget.RelativeLayout;
         import android.widget.TextView;
+import android.widget.Toast;
 
-        import androidx.annotation.NonNull;
+import androidx.annotation.NonNull;
         import androidx.fragment.app.Fragment;
         import androidx.recyclerview.widget.RecyclerView;
         import androidx.viewpager2.widget.ViewPager2;
@@ -71,7 +72,14 @@ import android.content.Context;
                 mAddTooCalenderButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        String weekday = mWeekday.getText().toString().trim();
+                        String key = weekday.substring(0,1).toUpperCase() + weekday.substring(1).toLowerCase();
+                        String recipeName = mRecipeName.getText().toString().trim();
+                        String value = recipeName.substring(0,1).toUpperCase() + recipeName.substring(1).toLowerCase();
+                        CalenderDB.getCalendarDB().put(key, value);
+                        mWeekday.setText(" ");
+                        mRecipeName.setText(" ");
+                        Toast.makeText(itemView.getContext(), "Added to weekday: "+ key + "\n" + "recipe: " + value + " to the calender", Toast.LENGTH_SHORT).show();
                     }
                 });
 

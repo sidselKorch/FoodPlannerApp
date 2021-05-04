@@ -14,7 +14,8 @@ public class CalenderDB extends Observable {
     private static Map<String, String> calenderDB = new TreeMap<>();
     //private RecipeFragment recipeFragment;
 
-    private CalenderDB(Context context){ fillCalenderDB();
+    private CalenderDB(Context context){
+        //fillCalenderDB();
 
     }
 
@@ -41,7 +42,7 @@ public class CalenderDB extends Observable {
         String r = "";
         if(calenderDB != null) {
             for (Map.Entry<String, String> recipeday : calenderDB.entrySet()) {
-                r += "Weekday: " + recipeday.getKey() + "   " + recipeday.getValue() + "\n\n";
+                r+= "Weekday: " + recipeday.getKey() + " Recipe: " + recipeday.getValue() + "\n";
 
             }
         }else r = "There is no elements in this map";
