@@ -59,7 +59,8 @@ public class CalenderDB extends Observable {
     public int size() { return sCalenderDB.size(); }
 
     public void removeRecipe(String weekday){
-        if (calenderDB.get(weekday) != null)  calenderDB.remove(weekday);
+        if (calenderDB != null)
+            calenderDB.remove(weekday);
         this.setChanged();
         notifyObservers();
     }

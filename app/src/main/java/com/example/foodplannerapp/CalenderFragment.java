@@ -11,7 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class CalenderFragment extends Fragment {
     private Button removeRecipe, clearCalender;
@@ -39,9 +41,12 @@ public class CalenderFragment extends Fragment {
 
             public void onClick(View view) {
                 if (!mWeekday.getText().toString().trim().isEmpty()) {
-                    calenderDB.removeRecipe(mWeekday.toString());
-                    Toast.makeText(getActivity(), "Removed "+ calenderDB.getValue(mWeekday.toString()), Toast.LENGTH_SHORT).show();
+                    String weekday = mWeekday.getText().toString().trim();
+                    String str = weekday.substring(0,1).toUpperCase() + weekday.substring(1).toLowerCase();
+                    calenderDB.removeRecipe(str);
+                    Toast.makeText(getActivity(), "Removed "+ str, Toast.LENGTH_SHORT).show();
                 }else Toast.makeText(getActivity(), "Removed", Toast.LENGTH_LONG).show();
+                listCalender.setText(calenderDB.listItems() + " " + "\n");
             }
         });
 
@@ -49,10 +54,8 @@ public class CalenderFragment extends Fragment {
         clearCalender.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-               for (Map.Entry<String, String> recipe : calenderDB.getCalendarDB().entrySet()){
-                   calenderDB.removeRecipe(mWeekday.toString());
-
-               }
+               calenderDB.getCalendarDB().clear();
+                listCalender.setText(calenderDB.listItems() + " " + "\n");
 
             }
         });
