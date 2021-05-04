@@ -9,52 +9,30 @@ import java.util.Map;
 import java.util.Observable;
 
 /**
- * This class is representing af database of saved recipes with a text and a picture. we should be able to add
- * recipes to this list by swiping right in the Recipe_List_Activity.
- * We should also be able to list all the recipes and delete them from the saved list.
- */
+ * This class is representing af database of saved recipes with a text, the recipes should be added
+ * from the recipeDB list
+ * */
 
 public class SavedRecipeDB extends Observable {
-    private static final String TAG = "myLOG";
-    private static final Map<String, RecipeItem> savedRecipeDB = new HashMap<String, RecipeItem>();
+    private static final List<RecipeItem> savedRecipeDB = new ArrayList<>();
     private static SavedRecipeDB mSavedRecipeDB;
-    private static HashMap<String, String> calendarDB = new HashMap<>();
-    private static RecipeDB sRecipeDB;
-    private static Context sContext;
-
-    //Emil: Jeg synes dette burde være databasen for saved
-    private List<RecipeItem> SavedRecipeDB2 = new ArrayList<>();
-
 
     private SavedRecipeDB (Context context) {
     }
 
     public static SavedRecipeDB  get(Context context)  {
         if (mSavedRecipeDB == null) {
-            sContext = context;
             mSavedRecipeDB = new SavedRecipeDB (context);
         }
         return mSavedRecipeDB;
     }
 
-    public Map<String, RecipeItem> getSavedRecipeDB() {return savedRecipeDB; }
-
-
-    //here we want to get the recipe that we have swiped right on in the Recipe_List_activity
-    public void addItemToCalendar(String weekday, String recipeName) {
-        calendarDB.put(weekday, recipeName); //add the recipe to the calendar list with the weekday
-        this.setChanged();
-        notifyObservers();
-    }
-
-    public static HashMap<String, String> getCalendarDB(){
-        return calendarDB;
-    }
+    public List<RecipeItem> getSavedRecipeList() {return savedRecipeDB; }
 
     public String listItems() {
         String r = "";
-        for (Map.Entry<String, RecipeItem> recipe : savedRecipeDB.entrySet()) {
-            r += recipe.getKey() + recipe.getValue();
+        for (RecipeItem recipeItem : savedRecipeDB) {
+            r += "Recipename: " + recipeItem.getRecipeName() + "\n" + "Guide: " + recipeItem.getRecipeGuide();
         }
         return r;
     }
@@ -63,24 +41,27 @@ public class SavedRecipeDB extends Observable {
 
     //Emil: denne metode skal så connectes til saved knappen.
     public void addRecipeToSaved(RecipeItem recipeItem) {
-        if (!SavedRecipeDB2.contains(recipeItem)) SavedRecipeDB2.add(recipeItem);
+        if (!savedRecipeDB.contains(recipeItem)) savedRecipeDB.add(recipeItem);
     }
 
-    public void removeItem(String recipe){
-        if (savedRecipeDB.get(recipe) != null)  savedRecipeDB.remove(recipe);
+    public void removeItem(String recipeName){
+        if (savedRecipeDB.contains(recipeName))  savedRecipeDB.remove(recipeName);
         this.setChanged();
         notifyObservers();
     }
 
     public static RecipeItem getSavedRecipeItem(String recipeName){
-        return savedRecipeDB.get(recipeName);
+        RecipeItem recipe = new RecipeItem();
+        for (RecipeItem recipeItem : savedRecipeDB
+             ) { recipe = recipeItem;
 
+        }
+        return recipe;
     }
-
 
     public List<RecipeItem> getAllSavedRecipees() { //not sure the second paramter in new RecipeItem
         List<RecipeItem> result= new ArrayList<>();
-        for (Map.Entry <String, RecipeItem> recipe: savedRecipeDB.entrySet()) {
+        for (RecipeItem recipeItem : savedRecipeDB) {
             result.add(new RecipeItem());
         }
         return result;

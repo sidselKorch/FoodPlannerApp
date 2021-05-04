@@ -25,6 +25,17 @@ public class CalenderDB extends Observable {
         return sCalenderDB;
     }
 
+    //here we want to get the recipe that we have swiped right on in the Recipe_List_activity
+    public void addItemToCalendar(String weekday, String recipeName) {
+        calenderDB.put(weekday, recipeName); //add the recipe to the calendar list with the weekday
+        this.setChanged();
+        notifyObservers();
+    }
+
+    public static Map<String, String> getCalendarDB(){
+        return calenderDB;
+    }
+
 
     public String listItems() {
         String r = "";
@@ -57,9 +68,6 @@ public class CalenderDB extends Observable {
         return calenderDB.get(weekday);
     }
 
-    public Map<String, String> getCalendarDB(){
-        return calenderDB;
-    }
 
     public void fillCalenderDB() {
         calenderDB.put("Monday", "recipeName");

@@ -42,8 +42,6 @@ public class RecipeDB extends Observable{
             return sRecipeDB;
         }
 
-        //public Map<String, String> getItemsDB() {return ItemsDB; }
-
         /*
         public void addRecipe(String recipeName, String recipeGuide) {
             RecipeItem newRecipe = new RecipeItem();
