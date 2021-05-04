@@ -42,9 +42,6 @@ public class SavedRecipeActivity extends AppCompatActivity{
         }
     }
 
-
-
-
         viewPager2.setAdapter(new SavedFragment(this, mRecipies, viewPager2));
 
     }

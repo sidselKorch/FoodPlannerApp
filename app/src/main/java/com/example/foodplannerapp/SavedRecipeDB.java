@@ -27,7 +27,8 @@ public class SavedRecipeDB extends Observable {
     private static SavedRecipeDB mSavedRecipeDB;
     private static Context sContext;
 
-    private SavedRecipeDB (Context context) {fillRecipeItems("foodPlanner.json");
+    private SavedRecipeDB (Context context) {
+        //fillRecipeItems("foodPlanner.json");
     }
 
     public static SavedRecipeDB  get(Context context)  {

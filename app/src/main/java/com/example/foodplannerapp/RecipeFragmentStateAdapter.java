@@ -18,7 +18,8 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
     private List<RecipeItem> mData;
     private LayoutInflater mInflater;
     private ViewPager2 viewPager2;
-
+    private SavedRecipeDB savedRecipeDB;
+    private RecipeItem currentRecipeItem;
 
     //private int[] colorArray = new int[]{android.R.color.black, android.R.color.holo_blue_dark, android.R.color.holo_green_dark, android.R.color.holo_red_dark};
 
@@ -26,6 +27,7 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.viewPager2 = viewPager2;
+        savedRecipeDB = SavedRecipeDB.get(context);
     }
 
 
@@ -40,6 +42,7 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
         RecipeItem recipeItem = mData.get(position);
         holder.myTextView.setText(recipeItem.toString());
         //holder.relativeLayout.setBackgroundResource(colorArray[position]);
+        currentRecipeItem = recipeItem;
     }
 
     @Override
@@ -59,22 +62,12 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
             relativeLayout = itemView.findViewById(R.id.container);
             saveButton = itemView.findViewById(R.id.save_button);
 
-            /*
-            button.setOnClickListener(new View.OnClickListener() {
+            saveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
-                    if(viewPager2.getOrientation() == ViewPager2.ORIENTATION_VERTICAL)
-                        viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-                    else{
-                        viewPager2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
-                    }
+                    savedRecipeDB.addRecipeToSaved(currentRecipeItem);
                 }
             });
-
-             */
         }
     }
-
 }
