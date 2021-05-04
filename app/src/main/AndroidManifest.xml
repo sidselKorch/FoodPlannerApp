@@ -16,10 +16,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RecipePagerActivity"
-            android:screenOrientation="sensor">
-        </activity>
-        <activity
             android:name=".RecipeViewPagerActivity"
             android:screenOrientation="sensor">
         </activity>
@@ -31,15 +27,6 @@
             android:name=".SavedRecipeActivity"
             android:screenOrientation="sensor">
         </activity>
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.foodplannerapp.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/files"/>
-        </provider>
     </application>
 
 </manifest>

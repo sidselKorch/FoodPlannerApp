@@ -7,11 +7,13 @@ package com.example.foodplannerapp;
 
 import android.content.Context;
         import android.content.Intent;
-        import android.view.LayoutInflater;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.Button;
-        import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
         import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +61,7 @@ import androidx.annotation.NonNull;
             TextView myTextView, mWeekday, mRecipeName;
             RelativeLayout relativeLayout;
             Button mViewCalenderButton, mAddTooCalenderButton;
+            ImageView mPhoto;
 
             ViewHolder(View itemView) {
                 super(itemView);
@@ -67,6 +70,7 @@ import androidx.annotation.NonNull;
 
                 mWeekday = itemView.findViewById(R.id.add_weekday_field);
                 mRecipeName = itemView.findViewById(R.id.add_recipeName_field);
+                mPhoto = itemView.findViewById(R.id.recipe_photo);
 
                 mAddTooCalenderButton = itemView.findViewById(R.id.add_to_calender);
                 mAddTooCalenderButton.setOnClickListener(new View.OnClickListener() {

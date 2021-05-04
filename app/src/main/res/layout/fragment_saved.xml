@@ -7,6 +7,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/saved_viewPager_text"
+        android:id="@+id/recipe_photo"
+        android:src="@drawable/salmonandpotatoes"/>
+
+
     <TextView
         android:id="@+id/saved_viewPager_text"
         android:layout_width="wrap_content"
