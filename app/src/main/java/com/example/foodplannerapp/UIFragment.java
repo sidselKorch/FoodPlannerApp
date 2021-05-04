@@ -58,6 +58,35 @@ public class UIFragment extends Fragment {
                 }
             });
 
+        } else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            listRecipes = v.findViewById(R.id.recipe_list);
+            listRecipes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), RecipeViewPagerActivity.class); //RecipePagerActivity -- RecipeViewPagerActivity
+                    startActivity(intent);
+                }
+            });
+
+            // LIST SAVED RECIPE BUTTON
+            savedRecipes = v.findViewById(R.id.saved_list);
+            savedRecipes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), SavedRecipeActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            // LIST CALENDER RECIPE BUTTON
+            calenderRecipes = v.findViewById(R.id.calender_list);
+            calenderRecipes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), CalenderActivityList.class);
+                    startActivity(intent);
+                }
+            });
         }
 
         return v;

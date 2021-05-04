@@ -7,44 +7,31 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Recipe name"
-        android:textSize="15sp"
-        />
-
-    <EditText
-        android:id="@+id/recipe_name_text"
-        android:layout_width="match_parent"
-        android:textSize="15sp"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:layout_marginBottom="30dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ingredients"
-        android:textSize="15sp"
-        />
-
-
-    <EditText
-        android:id="@+id/recipe_ingredients_text"
-        android:layout_width="match_parent"
-        android:textSize="15sp"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:layout_marginBottom="30dp"/>
-
+    <Button
+        android:id="@+id/recipe_list"
+        android:layout_marginTop="100sp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:background="#39f208"
+        android:text="List recipes"
+        android:layout_height="40sp"/>
 
     <Button
-        android:id="@+id/list"
+        android:id="@+id/saved_list"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
-        android:layout_gravity="left"
+        android:layout_gravity="center"
         android:background="#39f208"
-        android:text="List all items"
+        android:text="Saved recipe"
         android:layout_height="40sp"/>
+
+    <Button
+        android:id="@+id/calender_list"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="#39f208"
+        android:text="calender list" />
 
 </LinearLayout>
