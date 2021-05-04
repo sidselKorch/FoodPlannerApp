@@ -28,8 +28,8 @@ public class SavedRecipeDB extends Observable {
     private static Context sContext;
 
     private SavedRecipeDB (Context context) {
-        //fillRecipeItems("foodPlanner.json");
     }
+
 
     public static SavedRecipeDB  get(Context context)  {
         if (mSavedRecipeDB == null) {
@@ -77,43 +77,6 @@ public class SavedRecipeDB extends Observable {
             result.add(new RecipeItem());
         }
         return result;
-    }
-
-    public void fillRecipeItems(String filename){
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(sContext.getAssets().open(filename)));
-            String jsonString = reader.readLine();
-            JSONArray recipeA = new JSONArray(jsonString);
-            for (int i = 0; i < recipeA.length(); i++) {
-                RecipeItem ri = new RecipeItem();
-
-                String rName = recipeA.getJSONObject(i).getString("gname");
-                String rGuide = recipeA.getJSONObject(i).getString("gguide");
-                //ri.setRecipeName(recipeA.getJSONObject(i).getString("gname"));
-                //ri.setRecipeGuide(recipeA.getJSONObject(i).getString("gguide"));
-
-                ri.setRecipeName(rName);
-                ri.setRecipeGuide(rGuide);
-
-                //addRecipe(recipeA.getJSONObject(i).getString("gname"), recipeA.getJSONObject(i).getString("gguide"));
-                savedRecipeDB.add(ri);
-
-                    /*
-                    recipeName = recipeA.getJSONObject(i).getString("gname");
-                    recipeGuide = recipeA.getJSONObject(i).getString("gguide");
-                    //recipePicture = recipeA.getJSONObject(i).getString("gpicture");
-                    addRecipe(recipeName, recipeGuide);
-                    */
-
-            }
-        } catch (JSONException je) {
-            Log.e(TAG, "Failed to parse JSON", je);
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to read file", e);
-        }
-        this.setChanged();
-        notifyObservers();
-
     }
 
 }

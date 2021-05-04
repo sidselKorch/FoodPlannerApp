@@ -23,4 +23,13 @@
         android:layout_below="@+id/viewPager_text"
         android:text="save"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/saved_recipe_list_button"
+        android:layout_toRightOf="@id/save_button"
+        android:layout_below="@+id/viewPager_text"
+        android:text="saved recipe list"/>
+
 </RelativeLayout>

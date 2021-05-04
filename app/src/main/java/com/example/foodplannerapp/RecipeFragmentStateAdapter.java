@@ -1,6 +1,7 @@
 package com.example.foodplannerapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,18 +55,26 @@ public class RecipeFragmentStateAdapter extends RecyclerView.Adapter<RecipeFragm
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView myTextView;
         RelativeLayout relativeLayout;
-        Button saveButton;
+        Button saveButton, savedListButton;
 
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.viewPager_text);
             relativeLayout = itemView.findViewById(R.id.container);
             saveButton = itemView.findViewById(R.id.save_button);
+            savedListButton = itemView.findViewById(R.id.saved_recipe_list_button);
 
             saveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     savedRecipeDB.addRecipeToSaved(currentRecipeItem);
+                }
+            });
+
+            savedListButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemView.getContext().startActivity(new Intent(itemView.getContext(), SavedRecipeActivity.class));
                 }
             });
         }
