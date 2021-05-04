@@ -55,7 +55,7 @@ import android.content.Context;
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView myTextView;
+            TextView myTextView, mWeekday, mRecipeName;
             RelativeLayout relativeLayout;
             Button mViewCalenderButton, mAddTooCalenderButton;
 
@@ -64,9 +64,16 @@ import android.content.Context;
                 myTextView = itemView.findViewById(R.id.saved_viewPager_text);
                 relativeLayout = itemView.findViewById(R.id.viewPager_saved);
 
+                mWeekday = itemView.findViewById(R.id.add_weekday_field);
+                mRecipeName = itemView.findViewById(R.id.add_recipeName_field);
+
                 mAddTooCalenderButton = itemView.findViewById(R.id.add_to_calender);
-                //mSaveButton.setText("Saverecipe");
-                mAddTooCalenderButton.setEnabled(false);
+                mAddTooCalenderButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
 
                 mViewCalenderButton = itemView.findViewById(R.id.view_calender_button);
                 mViewCalenderButton.setOnClickListener(new View.OnClickListener() {
