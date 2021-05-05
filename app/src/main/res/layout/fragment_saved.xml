@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/saved_viewPager_text"
         android:background="#d3d3d3"
-        android:text="Type in weekday"
+        android:hint="Type in weekday"
         android:layout_marginBottom="10dp"/>
 
     <EditText
@@ -43,7 +43,7 @@
         android:layout_below="@id/add_weekday_field"
         android:background="#d3d3d3"
         android:layout_marginBottom="10dp"
-        android:text="Type in Recipename"/>
+        android:hint="Type in Recipename"/>
 
     <Button
         android:layout_width="wrap_content"
