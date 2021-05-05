@@ -31,6 +31,8 @@
         android:id="@+id/add_weekday_field"
         android:layout_width="match_parent"
         android:textSize="15sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/recipe_photo"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/saved_viewPager_text"
@@ -50,7 +52,7 @@
         android:hint="Type in Recipename"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/add_to_calender"
         android:background="#39f208"
@@ -58,10 +60,10 @@
         android:layout_toLeftOf="@id/saved_viewPager_text"
         android:layout_below="@+id/add_recipeName_field"
         android:text="add to calender"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="10dp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#39f208"
         android:id="@+id/view_calender_button"
