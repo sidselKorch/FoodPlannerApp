@@ -80,13 +80,6 @@ public class CalenderDB extends Observable {
         calenderDB.put("Saturday","recipeName");
         calenderDB.put("Sunday", "recipeName");
 
-        //calendarDB.put("Monday", recipeFragment.getSavedRecipe());
-        //calendarDB.put("Tuesday", recipeFragment.getSavedRecipe());
-        //calendarDB.put("Wednesday", recipeFragment.getSavedRecipe());
-        //calendarDB.put("Thursday", recipeFragment.getSavedRecipe());
-        //calendarDB.put("Friday", recipeFragment.getSavedRecipe());
-        //calendarDB.put("Saturday",recipeFragment.getSavedRecipe());
-        //calendarDB.put("Sunday", recipeFragment.getSavedRecipe());
 
     }
 

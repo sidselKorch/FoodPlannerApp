@@ -47,6 +47,7 @@ public class CalenderFragment extends Fragment {
                     Toast.makeText(getActivity(), "Removed "+ str, Toast.LENGTH_SHORT).show();
                 }else Toast.makeText(getActivity(), "Removed", Toast.LENGTH_LONG).show();
                 listCalender.setText(calenderDB.listItems() + " " + "\n");
+                mWeekday.setText("");
             }
         });
 

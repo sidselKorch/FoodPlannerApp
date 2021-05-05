@@ -42,16 +42,6 @@ public class RecipeDB extends Observable{
             return sRecipeDB;
         }
 
-        /*
-        public void addRecipe(String recipeName, String recipeGuide) {
-            RecipeItem newRecipe = new RecipeItem();
-            ContentValues values = getContentValues(newRecipe);
-            mDatabase.insert(RecipeDbSchema.ItemTable.NAME, null, values);
-            this.setChanged();
-            notifyObservers();
-        }
-
-         */
 
         public void addRecipe(RecipeItem recipeItem) {
             ContentValues values = getContentValues(recipeItem);
@@ -67,33 +57,6 @@ public class RecipeDB extends Observable{
             return values;
         }
 
-        // SELECT item
-        /*public String getRecipeValue(String itemName) {
-            //slå op i database i stedet
-
-            String can = "";
-            RecipeItemCurserWrapper cursor = queryItems(null, null);
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                if (itemName.equals(cursor.getRecipeItem().getRecipeName())) {
-                    can = cursor.getRecipeItem().getRecipeGuide();
-                }
-                cursor.moveToNext();
-            }
-            cursor.close();
-
-            if (itemName == null) {
-                return itemName + " not found";
-            } else if(can == "") {
-                return itemName + " not in database";
-            } else {
-                return itemName + " should be placed in " + can;
-            }
-        }
-
-         */
-
-        //INSERT items
         public void fillItemsDB(String filename) {
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(sContext.getAssets().open(filename)));
@@ -104,23 +67,13 @@ public class RecipeDB extends Observable{
 
                     String rName = recipeA.getJSONObject(i).getString("gname");
                     String rGuide = recipeA.getJSONObject(i).getString("gguide");
-                    //ri.setRecipeName(recipeA.getJSONObject(i).getString("gname"));
-                    //ri.setRecipeGuide(recipeA.getJSONObject(i).getString("gguide"));
 
                     ri.setRecipeName(rName);
                     ri.setRecipeGuide(rGuide);
 
-                    //addRecipe(recipeA.getJSONObject(i).getString("gname"), recipeA.getJSONObject(i).getString("gguide"));
                     list.add(ri);
 
                     addRecipe(ri);
-                    /*
-                    recipeName = recipeA.getJSONObject(i).getString("gname");
-                    recipeGuide = recipeA.getJSONObject(i).getString("gguide");
-                    //recipePicture = recipeA.getJSONObject(i).getString("gpicture");
-                    addRecipe(recipeName, recipeGuide);
-                    */
-
                 }
             } catch (JSONException je) {
                 Log.e(TAG, "Failed to parse JSON", je);
@@ -131,14 +84,6 @@ public class RecipeDB extends Observable{
             notifyObservers();
 
         }
-
-        /*
-        public ArrayList<RecipeItem> getAll() {
-            return list;
-        }
-
-         */
-
 
         public ArrayList<RecipeItem> getAll() {
             ArrayList<RecipeItem> recipes = new ArrayList<>();

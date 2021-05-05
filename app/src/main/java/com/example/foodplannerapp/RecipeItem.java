@@ -20,30 +20,6 @@ public class RecipeItem {
         recipeGuide = "";
         mId = UUID.randomUUID();
     }
-    /*
-    public void addIngredient(RecipeIngredients ingredients) {
-        if (!recipeIngredients.contains(ingredients)) recipeIngredients.add(ingredients);
-    }
-
-    public List<RecipeIngredients> getRecipeIngredients(){
-        return recipeIngredients;
-    }
-
-    public void removeIngredient(RecipeIngredients ingredients) {
-        if (recipeIngredients.contains(ingredients)) recipeIngredients.remove(ingredients);
-    }
-
-
-
-    public String printIngredient() {
-        String str = "";
-        for (RecipeIngredients recipe : recipeIngredients) {
-            str += recipe.toString();
-        }
-        return str;
-    }
-
-     */
 
     public static UUID getId() {
         return mId;
@@ -53,13 +29,6 @@ public class RecipeItem {
     /*
     public static String getPictureFilename() {
         return pictureFilename;
-    }
-
-     */
-
-    /*
-    public String getPhotoFilename() {//tror vi skal bruge recipeName til at gemme billedet under?
-        return "IMG_" + mRecipeIngredients.getRecipeName().toString() + ".jpg";
     }
 
      */
