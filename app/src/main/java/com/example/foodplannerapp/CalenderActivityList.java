@@ -1,5 +1,6 @@
 package com.example.foodplannerapp;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +12,7 @@ import androidx.fragment.app.FragmentManager;
 public class CalenderActivityList extends AppCompatActivity {
     private static CalenderDB mCalendarDB;
     private FragmentManager fm;
-    Fragment fragmentCalendar;
+    Fragment fragmentCalender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +21,27 @@ public class CalenderActivityList extends AppCompatActivity {
 
         mCalendarDB = CalenderDB.get(this); //gets the map where the recipees are added?
         fm = getSupportFragmentManager();
+        setUpFragments();
+    }
 
-        fragmentCalendar = fm.findFragmentById(R.id.calendar_container_list);
-        if (fragmentCalendar == null) {
-            fragmentCalendar = new CalenderFragment();
-            fm.beginTransaction()
-                    .add(R.id.calendar_container_list, fragmentCalendar)
-                    .commit();
+    private void setUpFragments() {
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            fragmentCalender= fm.findFragmentById(R.id.calendar_container_landscape);
+            if ((fragmentCalender == null)) {
+                fragmentCalender= new CalenderFragment();
+                fm.beginTransaction()
+                        .add(R.id.calendar_container_landscape, fragmentCalender)
+                        .commit();
+            }
+        } else {
+            //Orientation portrait
+            fragmentCalender = fm.findFragmentById(R.id.calendar_container_portrait);
+            if (fragmentCalender == null) {
+                fragmentCalender = new CalenderFragment();
+                fm.beginTransaction()
+                        .add(R.id.calendar_container_portrait, fragmentCalender)
+                        .commit();
+            }
         }
     }
 

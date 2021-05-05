@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     // GUI variables
     private FragmentManager fm;
     Fragment fragmentUI;
-    Fragment fragmentList;
-    Fragment fragmentAdd;
+    //Fragment fragmentList;
+    //Fragment fragmentAdd;
     private static SQLiteDatabase mDatabase;
 
 
@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             fragmentUI= fm.findFragmentById(R.id.container_ui_landscape);
             //fragmentList= fm.findFragmentById(R.id.recipe_container_list);
-            if ((fragmentUI == null) && (fragmentList == null) && (fragmentAdd == null)) {
+            if ((fragmentUI == null)) {
+                    //&& (fragmentList == null) && (fragmentAdd == null)) {
                 fragmentUI= new UIFragment();
                 //fragmentList= new RecipeFragment();
                 fm.beginTransaction()
