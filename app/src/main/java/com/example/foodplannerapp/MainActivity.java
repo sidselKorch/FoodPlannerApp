@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragmentUI;
     //Fragment fragmentList;
     //Fragment fragmentAdd;
-    //private static SQLiteDatabase mDatabase;
+    private static SQLiteDatabase mDatabase;
 
 
     @Override
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.foodplanner);
         fm = getSupportFragmentManager();
         setUpFragments();
-        //mDatabase = new RecipeItemBaseHelper(this).getWritableDatabase();
+        mDatabase = new RecipeItemBaseHelper(this).getWritableDatabase();
 
     }
 
