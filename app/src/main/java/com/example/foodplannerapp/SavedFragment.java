@@ -25,8 +25,6 @@ import androidx.annotation.NonNull;
         private LayoutInflater mInflater;
         private ViewPager2 viewPager2;
 
-        //private int[]colorArray=new int[]{android.R.color.black,android.R.color.holo_blue_dark,android.R.color.holo_green_dark,android.R.color.holo_red_dark};
-
         public SavedFragment(Context context,List<RecipeItem>data,ViewPager2 viewPager2){
             this.mInflater=LayoutInflater.from(context);
             this.savedRecipeDB=data;
@@ -44,7 +42,6 @@ import androidx.annotation.NonNull;
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             RecipeItem recipeItem=savedRecipeDB.get(position);
             holder.myTextView.setText(recipeItem.toString());
-            //holder.relativeLayout.setBackgroundResource(colorArray[position]);
 
         }
 

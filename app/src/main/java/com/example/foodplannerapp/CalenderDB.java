@@ -12,7 +12,6 @@ import java.util.TreeMap;
 public class CalenderDB extends Observable {
     private static CalenderDB sCalenderDB;
     private static Map<String, String> calenderDB = new TreeMap<>();
-    //private RecipeFragment recipeFragment;
 
     private CalenderDB(Context context){
         //fillCalenderDB();

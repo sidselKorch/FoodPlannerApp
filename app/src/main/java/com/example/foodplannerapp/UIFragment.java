@@ -26,7 +26,6 @@ public class UIFragment extends Fragment {
         final View v = inflater.inflate(R.layout.fragment_ui, container, false);
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            //Log.i("***", "PP");
 
             // LIST RECIPE BUTTON
             listRecipes = v.findViewById(R.id.recipe_list);
