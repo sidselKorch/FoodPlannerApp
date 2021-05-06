@@ -23,22 +23,18 @@ public class SavedRecipeActivity extends AppCompatActivity{
     List<RecipeItem>tempList;
     List<RecipeItem> mRecipies;
 
-
 @Override
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_saved_list);
     mSavedRecipesDB = SavedRecipeDB.get(this);
     viewPager2 = findViewById(R.id.viewPager_saved);
-    tempList = new ArrayList<>();
-    tempList = mSavedRecipesDB.getSavedRecipeList();
-    mRecipies = new ArrayList<>();
-    mRecipies = sortList((ArrayList<RecipeItem>) tempList);
+    mRecipies = mSavedRecipesDB.getSavedRecipeList();
 
     viewPager2.setAdapter(new SavedFragment(this, mRecipies, viewPager2));
 
     }
-
+    /*
     private ArrayList<RecipeItem> sortList(ArrayList<RecipeItem> firstTempList) {
         ArrayList<RecipeItem> returnableList = new ArrayList<>();
         ArrayList<RecipeItem> secondTempList = new ArrayList<>();
@@ -64,4 +60,5 @@ public class SavedRecipeActivity extends AppCompatActivity{
         }
         return returnableList;
     }
+    */
 }

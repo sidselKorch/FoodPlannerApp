@@ -21,18 +21,13 @@ public class RecipeViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipe_pager_activity);
         recipesDB = RecipeDB.get(this);
-
         viewPager2 = findViewById(R.id.viewPager2);
-        firstTempList = new ArrayList<>();
-        firstTempList = recipesDB.getAll();
-
         mRecipies = new ArrayList<>();
-        mRecipies = sortList((ArrayList<RecipeItem>) firstTempList);
-
+        mRecipies = recipesDB.getAll();
         viewPager2.setAdapter(new RecipeFragmentStateAdapter(this, mRecipies, viewPager2));
-
     }
 
+    /*
     private ArrayList<RecipeItem> sortList(ArrayList<RecipeItem> firstTempList) {
         ArrayList<RecipeItem> returnableList = new ArrayList<>();
         ArrayList<RecipeItem> secondTempList = new ArrayList<>();
@@ -58,5 +53,5 @@ public class RecipeViewPagerActivity extends AppCompatActivity {
         }
         return returnableList;
     }
-
+    */
 }
